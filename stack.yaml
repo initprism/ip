@@ -1,0 +1,9 @@
+resolver:
+  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/18/20.yaml
+
+packages:
+- .
+
+flags:
+  mintty:
+    Win32-2-13-1: false

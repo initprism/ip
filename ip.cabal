@@ -1,0 +1,84 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           ip
+version:        0.1.0.0
+homepage:       https://github.com/githubuser/ip#readme
+bug-reports:    https://github.com/githubuser/ip/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2021 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/ip
+
+library
+  exposed-modules:
+      Gen.GenIP
+      Gen.Main
+      Lookup.IPTypes
+      Lookup.LookupIP
+      Lookup.ParseIP
+  other-modules:
+      Paths_ip
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , exceptions
+    , hedgehog
+    , optparse-applicative
+    , split
+  default-language: Haskell2010
+
+executable ip-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_ip
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , exceptions
+    , hedgehog
+    , ip
+    , optparse-applicative
+    , split
+  default-language: Haskell2010
+
+test-suite ip-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      GoldenTests
+      LookupIPSpec
+      ParseIPSpec
+      Props
+      Paths_ip
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , exceptions
+    , filepath
+    , hedgehog
+    , ip
+    , optparse-applicative
+    , split
+    , tasty
+    , tasty-golden
+    , tasty-hedgehog
+    , tasty-hspec
+  default-language: Haskell2010
